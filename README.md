@@ -61,7 +61,7 @@ On top of the connection latency, in order to resemble more to the real world, a
 The final values for the coefficients have been selected through trial and error. In the table below, a couple of settings are presented, along side with images of their effect on the vehicle's predicted trajectory:
 
 | CTE | epsi | delta | acceleration |  change in delta | change in acceleration | result |
-| --- | --- | --- | --- | --- | --- | --- | --- |
+| --- | --- | --- | --- | --- | --- | --- |
 | 1000 | 1000 | 5 | 5 | 2000 | 100 | ![settings](https://raw.githubusercontent.com/sorix6/CarND-MPC-Project/master/images/img1.JPG) |
 | 1000 | 1000 | 50 | 50 | 2000 | 100 | ![settings](https://raw.githubusercontent.com/sorix6/CarND-MPC-Project/master/images/img2.JPG) |
 | 1000 | 1000 | 50 | 50 | 100 | 100 | ![settings](https://raw.githubusercontent.com/sorix6/CarND-MPC-Project/master/images/img3.JPG) |
@@ -71,6 +71,7 @@ The final values for the coefficients have been selected through trial and error
 The following values have been used in the final configuration:
 
 | CTE | epsi | delta | acceleration |  change in delta | change in acceleration |
+| --- | --- | --- | --- | --- | --- |
 | 4000 | 4000 | 1 | 1 | 10000 | 50 |
 
 In addition to this, penalties where added for steering and accelerating at the same time and also for high speeds while steering
