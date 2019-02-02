@@ -62,19 +62,20 @@ The final values for the coefficients have been selected through trial and error
 
 | CTE | epsi | delta | acceleration |  change in delta | change in acceleration | result |
 | --- | --- | --- | --- | --- | --- | --- |
-| 1000 | 1000 | 5 | 5 | 2000 | 100 | ![settings](https://raw.githubusercontent.com/sorix6/CarND-MPC-Project/master/images/img1.JPG) |
+| 1000 | 1000 | 5 | 5 | 2000 | 100 | ![settings](https://raw.githubusercontent.com/sorix6/CarND-MPC-Project/master/images/img1_1.JPG) |
 | 1000 | 1000 | 50 | 50 | 2000 | 100 | ![settings](https://raw.githubusercontent.com/sorix6/CarND-MPC-Project/master/images/img2.JPG) |
 | 1000 | 1000 | 50 | 50 | 100 | 100 | ![settings](https://raw.githubusercontent.com/sorix6/CarND-MPC-Project/master/images/img3.JPG) |
 | 1000 | 1000 | 50 | 50 | 3000 | 100 | ![settings](https://raw.githubusercontent.com/sorix6/CarND-MPC-Project/master/images/img4.JPG) |
 | 1000 | 1000 | 50 | 50 | 10000 | 1000 | ![settings](https://raw.githubusercontent.com/sorix6/CarND-MPC-Project/master/images/img5.JPG) |
 
-The following values have been used in the final configuration:
+
+**The following values have been used in the final configuration:**
 
 | CTE | epsi | delta | acceleration |  change in delta | change in acceleration |
 | --- | --- | --- | --- | --- | --- |
 | 4000 | 4000 | 1 | 1 | 10000 | 50 |
 
-In addition to this, penalties where added for steering and accelerating at the same time and also for high speeds while steering
+**In addition to this, penalties where added for steering and accelerating at the same time and also for high speeds while steering.**
 
 * The state values are calculated by taking into account the change rate 
 
