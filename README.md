@@ -88,7 +88,7 @@ A video of the simulation using the implementation can be found in **/videos/MPC
 During the implementation of this project, the following resources have been used:
 
 * Udacity courses
-* Self-Driving Car Project Q&A | MPC Controller(https://www.youtube.com/watch?v=bOQuhpz3YfU&feature=youtu.be)
-* Jeremy Shannon CarND-MPC-Project(https://github.com/jeremy-shannon/CarND-MPC-Project)
+* [Self-Driving Car Project Q&A | MPC Controller](https://www.youtube.com/watch?v=bOQuhpz3YfU&feature=youtu.be)
+* [Jeremy Shannon CarND-MPC-Project](https://github.com/jeremy-shannon/CarND-MPC-Project)
 
 
