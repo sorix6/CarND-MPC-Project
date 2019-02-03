@@ -47,6 +47,8 @@ int main() {
           double py = j[1]["y"];
           double psi = j[1]["psi"];
           double v = j[1]["speed"];
+          double delta= j[1]["steering_angle"];
+          double a = j[1]["throttle"];
 
           /**
            * Calculate steering angle and throttle using MPC.
@@ -76,9 +78,25 @@ int main() {
           double cte = polyeval(coeffs, 0); // car is at 0 with angle 0
           // epsi = psi -atan(coeffs[1] + 2 * px * coeffs[2] + 3 * coeffs[3] + pow(px, 2)) - where px and psi are both 0
           double epsi = -atan(coeffs[1]);
-
-          Eigen::VectorXd state(6);
-          state << 0, 0, 0, v, cte, epsi;
+          
+          // Dealing with latency - predict all states for dt latency
+          double dt= 0.1;
+		      const double Lf = 2.67;
+          double x1=0, y1=0,  psi1=0, v1=v, cte1=cte, epsi1=epsi;	 
+          
+          // since psi is 0, the equations for states are as follows:
+          x1 += v * cos(0) * dt;
+          y1 += v * sin(0) * dt;
+          
+          delta *= -1; // since turning left is a negative value in the simulator but a positive yaw for the MPC
+       
+          psi1 += v/Lf * delta * dt;
+          v1 += a * dt;	    
+          cte1 +=  v * sin(epsi) * dt;
+          epsi1 += v * delta / Lf * dt;	  
+          
+      	  Eigen::VectorXd state(6);	  
+      	  state << x1,y1,psi1,v1,cte1,epsi1;
 
           auto vars = mpc.Solve(state, coeffs); // we pass the coefficients in order to calculate the future CTE and epsi
 
@@ -94,7 +112,7 @@ int main() {
            */
           double poly_inc = 2.5;
           int num_points = 25; // number of point in the future to display
-          for (unsigned int i = 1; i < num_points; i++){
+          for (int i = 1; i < num_points; i++){
             next_x_vals.push_back(poly_inc * i);
             next_y_vals.push_back(polyeval(coeffs, poly_inc * i));
           }
@@ -117,8 +135,6 @@ int main() {
             }
           }
 
-
-          double Lf = 2.67;
           json msgJson;
           // NOTE: Remember to divide by deg2rad(25) before you send the 
           //   steering value back. Otherwise the values will be in between 

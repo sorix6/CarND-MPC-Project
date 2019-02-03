@@ -56,6 +56,8 @@ The preprocessing implied shifting the reference angle to 90 degrees and rotatin
 
 On top of the connection latency, in order to resemble more to the real world, an additional matency of 100 miliseconds has been added to the simulator. At low speeds, this latency does not really affect the behaviour of the vehicle, but at high speeds, the vehicle might become instable and even erratic. In order to deal with latency, several actions have been taken:
 
+* Kinematic equations have been used in order to predict the states after 100ms(latency) and send them to the MPC.
+
 * Several coefficients are used in order to specify how much importance should the cost function give to certain attributes, like the CTE, epsi, delta, acceleration, etc. For example, the peed is less important than the steering angle and staying aligned with the track. 
 
 The final values for the coefficients have been selected through trial and error. In the table below, a couple of settings are presented, along side with images of their effect on the vehicle's predicted trajectory:
@@ -74,7 +76,6 @@ The following values have been used in the final configuration:
 
 In addition to this, penalties where added for steering and accelerating at the same time and also for high speeds while steering
 
-* The state values are calculated by taking into account the change rate 
 
 ## Results
 
